@@ -38,6 +38,7 @@ from detectron2.evaluation import (
     verify_results,
 )
 from detectron2.modeling import GeneralizedRCNNWithTTA
+from detectron2.data.datasets import register_coco_instances
 
 
 def build_evaluator(cfg, dataset_name, output_folder=None):
@@ -131,6 +132,13 @@ def setup(args):
 def main(args):
     cfg = setup(args)
 
+    if 'armbench_train' in cfg.DATASETS.TRAIN:
+        register_coco_instances('armbench_train', {}, 'datasets/armbench/mix-object-tote/train.json', 'datasets/armbench/mix-object-tote/images')
+    if 'armbench_val' in cfg.DATASETS.TEST:
+        register_coco_instances('armbench_val', {}, 'datasets/armbench/mix-object-tote/val.json', 'datasets/armbench/mix-object-tote/images')
+    if 'armbench_test' in cfg.DATASETS.TEST:
+        register_coco_instances('armbench_test', {}, 'datasets/armbench/mix-object-tote/test.json', 'datasets/armbench/mix-object-tote/images')
+    
     if args.eval_only:
         model = Trainer.build_model(cfg)
         DetectionCheckpointer(model, save_dir=cfg.OUTPUT_DIR).resume_or_load(

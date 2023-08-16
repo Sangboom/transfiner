@@ -340,7 +340,7 @@ class IoUMetricsCallback(Callback):
             prefix = metric
 
         if classes_of_interest is not None:
-            if classes_of_interest.dtype == np.bool:
+            if classes_of_interest.dtype == np.bool_:
                 num_classes = len(classes_of_interest)
                 classes_of_interest = np.arange(num_classes)[classes_of_interest]
 
