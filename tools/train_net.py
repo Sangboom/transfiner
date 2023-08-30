@@ -138,9 +138,28 @@ def main(args):
         register_coco_instances('armbench_val', {}, 'datasets/armbench/mix-object-tote/val.json', 'datasets/armbench/mix-object-tote/images')
     if 'armbench_test' in cfg.DATASETS.TEST:
         register_coco_instances('armbench_test', {}, 'datasets/armbench/mix-object-tote/test.json', 'datasets/armbench/mix-object-tote/images')
+
+    if 'armbench_sameobject_train' in cfg.DATASETS.TRAIN:
+        register_coco_instances('armbench_sameobject_train', {}, 'datasets/armbench/same-object-transfer-set/train.json', 'datasets/armbench/same-object-transfer-set/images')
+    if 'armbench_sameobject_val' in cfg.DATASETS.TEST:
+        register_coco_instances('armbench_sameobject_val', {}, 'datasets/armbench/same-object-transfer-set/val.json', 'datasets/armbench/same-object-transfer-set/images')
+    if 'armbench_sameobject_test' in cfg.DATASETS.TEST:
+        register_coco_instances('armbench_sameobject_test', {}, 'datasets/armbench/same-object-transfer-set/test.json', 'datasets/armbench/same-object-transfer-set/images')
+
+    if 'armbench_zoomout_train' in cfg.DATASETS.TRAIN:
+        register_coco_instances('armbench_zoomout_train', {}, 'datasets/armbench/zoomed-out-tote-transfer-set/train.json', 'datasets/armbench/zoomed-out-tote-transfer-set/images')
+    if 'armbench_zoomout_val' in cfg.DATASETS.TEST:
+        register_coco_instances('armbench_zoomout_val', {}, 'datasets/armbench/zoomed-out-tote-transfer-set/val.json', 'datasets/armbench/zoomed-out-tote-transfer-set/images')
+    if 'armbench_zoomout_test' in cfg.DATASETS.TEST:
+        register_coco_instances('armbench_zoomout_test', {}, 'datasets/armbench/zoomed-out-tote-transfer-set/test.json', 'datasets/armbench/zoomed-out-tote-transfer-set/images')
+    
     
     if args.eval_only:
         model = Trainer.build_model(cfg)
+        from fvcore.nn.parameter_count import parameter_count_table
+        print(parameter_count_table(model, max_depth=10))
+        # import time
+        # time.sleep(10000)
         DetectionCheckpointer(model, save_dir=cfg.OUTPUT_DIR).resume_or_load(
             cfg.MODEL.WEIGHTS, resume=args.resume
         )
