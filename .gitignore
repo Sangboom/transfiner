@@ -122,3 +122,4 @@ work_dirs/
 detectron2.egg-info/*
 datasets/
 output*
+armbench*
