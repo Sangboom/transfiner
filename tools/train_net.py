@@ -153,6 +153,13 @@ def main(args):
     if 'armbench_zoomout_test' in cfg.DATASETS.TEST:
         register_coco_instances('armbench_zoomout_test', {}, 'datasets/armbench/zoomed-out-tote-transfer-set/test.json', 'datasets/armbench/zoomed-out-tote-transfer-set/images')
     
+    if '1billion_graspnet_train' in cfg.DATASETS.TRAIN:
+        register_coco_instances('1billion_graspnet_train',  {}, 'datasets/1billion_graspnet/annotations/realsense/train.json', 'datasets/1billion_graspnet')
+    if '1billion_graspnet_val' in cfg.DATASETS.TEST:
+        register_coco_instances('1billion_graspnet_train',  {}, 'datasets/1billion_graspnet/annotations/realsense/test_seen.json', 'datasets/1billion_graspnet')
+    if '1billion_graspnet_val' in cfg.DATASETS.TEST:
+        register_coco_instances('1billion_graspnet_train',  {}, 'datasets/1billion_graspnet/annotations/realsense/test_seen.json', 'datasets/1billion_graspnet')
+        
     
     if args.eval_only:
         model = Trainer.build_model(cfg)

@@ -123,3 +123,4 @@ detectron2.egg-info/*
 datasets/
 output*
 armbench*
+cocoapi/
