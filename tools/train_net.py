@@ -156,9 +156,9 @@ def main(args):
     if '1billion_graspnet_train' in cfg.DATASETS.TRAIN:
         register_coco_instances('1billion_graspnet_train',  {}, 'datasets/1billion_graspnet/annotations/realsense/train.json', 'datasets/1billion_graspnet')
     if '1billion_graspnet_val' in cfg.DATASETS.TEST:
-        register_coco_instances('1billion_graspnet_train',  {}, 'datasets/1billion_graspnet/annotations/realsense/test_seen.json', 'datasets/1billion_graspnet')
-    if '1billion_graspnet_val' in cfg.DATASETS.TEST:
-        register_coco_instances('1billion_graspnet_train',  {}, 'datasets/1billion_graspnet/annotations/realsense/test_seen.json', 'datasets/1billion_graspnet')
+        register_coco_instances('1billion_graspnet_val',  {}, 'datasets/1billion_graspnet/annotations/realsense/test_unseen.json', 'datasets/1billion_graspnet')
+    if '1billion_graspnet_test' in cfg.DATASETS.TEST:
+        register_coco_instances('1billion_graspnet_test',  {}, 'datasets/1billion_graspnet/annotations/realsense/test_unseen.json', 'datasets/1billion_graspnet')
         
     
     if args.eval_only:

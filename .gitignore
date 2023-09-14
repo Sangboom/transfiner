@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*output*
+1billion_graspnet*/
 
 # C extensions
 *.so

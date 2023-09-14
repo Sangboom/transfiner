@@ -193,7 +193,7 @@ MODEL:
     - 0.5
     NAME: StandardROIHeads
     NMS_THRESH_TEST: 0.5
-    NUM_CLASSES: 80
+    NUM_CLASSES: 1
     POSITIVE_FRACTION: 0.25
     PROPOSAL_APPEND_GT: true
     SCORE_THRESH_TEST: 0.05
@@ -267,7 +267,7 @@ MODEL:
     NAME: SemSegFPNHead
     NORM: GN
     NUM_CLASSES: 54
-  WEIGHTS: detectron2://ImageNetPretrained/MSRA/R-50.pkl
+  WEIGHTS: ./1billion_graspnet_output_r50_1x/model_final.pth
 OUTPUT_DIR: ./1billion_graspnet_output_r50_1x
 SEED: -1
 SOLVER:
@@ -282,9 +282,9 @@ SOLVER:
     ENABLED: false
     NORM_TYPE: 2.0
   GAMMA: 0.1
-  IMS_PER_BATCH: 2
+  IMS_PER_BATCH: 4
   LR_SCHEDULER_NAME: WarmupMultiStepLR
-  MAX_ITER: 90000
+  MAX_ITER: 76300
   MOMENTUM: 0.9
   NESTEROV: false
   REFERENCE_WORLD_SIZE: 0

@@ -164,6 +164,10 @@ _PREDEFINED_SPLITS_LVIS = {
         "lvis_v0.5_train_cocofied": ("coco/", "lvis/lvis_v0.5_train_cocofied.json"),
         "lvis_v0.5_val_cocofied": ("coco/", "lvis/lvis_v0.5_val_cocofied.json"),
     },
+    "lvis_v1_cocofied": {
+        "lvis_v1_train_cocofied": ("coco/", "lvis/lvis_v1_train_cocofied.json"),
+        "lvis_v1_val_cocofied": ("coco/", "lvis/lvis_v1_val_cocofied.json"),
+    },
 }
 
 
